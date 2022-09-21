@@ -1,6 +1,6 @@
 require 'secret_diary'
 
-RSpec.describe 'SecretDiary integration' do
+RSpec.describe SecretDiary do
   it 'Returns contents after unlocking' do
     diary = double :fake_diary, read: 'This is the secret contents' 
     secret_diary = SecretDiary.new(diary)
