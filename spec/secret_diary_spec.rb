@@ -13,4 +13,12 @@ RSpec.describe SecretDiary do
     secret_diary = SecretDiary.new(diary)
     expect { secret_diary.read }.to raise_error 'Go away!'
   end
+
+  it 'raises error if relocking' do
+    diary = double :fake_diary, read: 'This is the secret contents' 
+    secret_diary = SecretDiary.new(diary)
+    secret_diary.unlock
+    secret_diary.lock
+    expect { secret_diary.read }.to raise_error 'Go away!'
+  end
 end
